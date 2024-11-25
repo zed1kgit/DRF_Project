@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'redis',
 
     # project apps
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -148,7 +149,7 @@ STATIC_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.User'
 
 cache_status = os.getenv('CACHE_ENABLED')
 CACHE_ENABLED = cache_status
