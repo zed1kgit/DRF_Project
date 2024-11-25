@@ -7,6 +7,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         admin = User.objects.create(
+            username="admin",
             email='admin@gmail.com',
             first_name='Admin',
             last_name='Adminov',
@@ -21,6 +22,7 @@ class Command(BaseCommand):
         print('Admin created')
 
         moderator = User.objects.create(
+            username="moderator",
             email='moderator@gmail.com',
             first_name='Moderator',
             last_name='Moderov',
@@ -35,6 +37,7 @@ class Command(BaseCommand):
         print('Moderator created')
 
         user = User.objects.create(
+            username="user",
             email='user@gmail.com',
             first_name='User',
             last_name='Userov',

@@ -13,15 +13,15 @@ class UserRoles(models.TextChoices):
 
 class User(AbstractUser):
     """User model."""
-    username = None
+    username = models.CharField(_('username'), max_length=150, unique=True,)
     email = models.EmailField(_('email address'), unique=True)
     role = models.CharField(max_length=9, choices=UserRoles.choices, default=UserRoles.MEMBER)
-    first_name = models.CharField(max_length=150, verbose_name=_('First Name'), **NULLABLE)
-    last_name = models.CharField(max_length=150, verbose_name=_('Last Name'), **NULLABLE)
-    phone_number = models.CharField(max_length=35, verbose_name=_('Phone Number'), **NULLABLE)
-    is_active = models.BooleanField(default=True, verbose_name=_('Active'))
+    first_name = models.CharField(max_length=150, verbose_name=_('first name'), **NULLABLE)
+    last_name = models.CharField(max_length=150, verbose_name=_('last name'), **NULLABLE)
+    phone_number = models.CharField(max_length=35, verbose_name=_('phone number'), **NULLABLE)
+    is_active = models.BooleanField(default=True, verbose_name=_('active'))
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
 
     def __str__(self):
