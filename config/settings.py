@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'redis',
 
     # project apps
-    'users.apps.UsersConfig',
+    'users',
 ]
 
 MIDDLEWARE = [
