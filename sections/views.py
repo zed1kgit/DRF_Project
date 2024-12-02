@@ -2,11 +2,12 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
-from sections.models import Section, SectionContent
+from sections.models import Section, SectionContent, Tests
 from sections.permissions import IsModerator
 from sections.serializers.section_serializers import SectionSerializer, SectionListSerializer
 from sections.serializers.section_content_serializers import SectionContentListSerializer, SectionContentSerializer
-from sections.paginators import SectionPaginator, SectionContentPaginator
+from sections.paginators import SectionPaginator, SectionContentPaginator, TestPaginator
+from sections.serializers.tests_serializers import TestsSerializer, TestQuestionSerializer
 
 
 class SectionListAPIView(ListAPIView):
@@ -67,3 +68,23 @@ class SectionContentDestroyAPIView(DestroyAPIView):
     serializer_class = SectionContentSerializer
     queryset = SectionContent.objects.all()
     permission_classes = (IsAuthenticated, IsAdminUser | IsModerator)
+
+
+class TestListAPIView(ListAPIView):
+    serializer_class = TestsSerializer
+    queryset = Tests.objects.all()
+    permission_classes = (IsAuthenticated,)
+    pagination_class = TestPaginator
+
+
+class TestQuestionRetrieveAPIView(RetrieveAPIView):
+    serializer_class = TestQuestionSerializer
+    queryset = Tests.objects.all()
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request, *args, **kwargs):
+        test = self.get_object()
+        answer = test.answer.lower()
+        user_answer = request.data['answer'].lower()
+        is_correct = answer == user_answer
+        return Response({'is_correct': is_correct})
