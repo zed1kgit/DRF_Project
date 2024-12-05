@@ -1,0 +1,62 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$hko1F1fQVpHDyTEVxKiG8Z$LifQUhfwYwz9j5jbBfRVFIogYLd2wf+7/ZszjXmxz+A=",
+      "last_login": "2024-12-05T00:09:41.471Z",
+      "is_superuser": true,
+      "is_staff": true,
+      "date_joined": "2024-12-02T16:28:57.539Z",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "first_name": "Admin",
+      "last_name": "Adminov",
+      "phone_number": null,
+      "is_active": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$hko1F1fQVpHDyTEVxKiG8Z$LifQUhfwYwz9j5jbBfRVFIogYLd2wf+7/ZszjXmxz+A=",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": true,
+      "date_joined": "2024-12-02T16:28:57.931Z",
+      "username": "moderator",
+      "email": "moderator@gmail.com",
+      "role": "moderator",
+      "first_name": "Userok",
+      "last_name": "Moderov",
+      "phone_number": null,
+      "is_active": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$hko1F1fQVpHDyTEVxKiG8Z$LifQUhfwYwz9j5jbBfRVFIogYLd2wf+7/ZszjXmxz+A=",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "date_joined": "2024-12-02T16:28:58.248Z",
+      "username": "user",
+      "email": "user@gmail.com",
+      "role": "user",
+      "first_name": "Userok",
+      "last_name": "Userov",
+      "phone_number": null,
+      "is_active": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
