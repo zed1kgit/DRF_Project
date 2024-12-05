@@ -29,9 +29,14 @@ class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'password', 'phone_number', 'is_active']
-        validators = [
-            PasswordValidator(field='password'),
-        ]
+
+    def update(self, instance, validated_data):
+        instance = super().update(instance, validated_data)
+        if 'password' in validated_data:
+            instance.set_password(validated_data['password'])
+            instance.save()
+        return instance
+
 
 class UserTokenObtainSerializer(TokenObtainSerializer):
     @classmethod
