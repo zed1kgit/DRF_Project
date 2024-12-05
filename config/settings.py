@@ -87,24 +87,41 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 load_dotenv()
-HOST = os.getenv('MS_SQL_SERVER')
-DATABASE = os.getenv('MS_SQL_DATABASE')
-USER = os.getenv('MS_SQL_USER')
-PASSWORD = os.getenv('MS_SQL_KEY')
-CREATED_DATABASE = os.getenv('MS_SQL_CREATED_DATABASE')
+# HOST = os.getenv('MS_SQL_SERVER')
+# DATABASE = os.getenv('MS_SQL_DATABASE')
+# USER = os.getenv('MS_SQL_USER')
+# PASSWORD = os.getenv('MS_SQL_KEY')
+# CREATED_DATABASE = os.getenv('MS_SQL_CREATED_DATABASE')
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mssql',
+#         'NAME': DATABASE,
+#         'USER': USER,
+#         'PASSWORD': PASSWORD,
+#         'HOST': HOST,
+#         'PORT': '',
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 18 for SQL Server',
+#             'extra_params': 'Encrypt=Optional',
+#         }
+#     }
+# }
 
+# DOCKER
+database_name = os.getenv('POSTGRES_DATABASE_DOCKER')
+database_user = os.getenv('POSTGRES_USER')
+database_password = os.getenv('POSTGRES_PASSWORD')
+database_host = os.getenv('POSTGRES_HOST_DOCKER')
+database_port = os.getenv('POSTGRES_PORT_DOCKER')
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': DATABASE,
-        'USER': USER,
-        'PASSWORD': PASSWORD,
-        'HOST': HOST,
-        'PORT': '',
-        'OPTIONS': {
-            'driver': 'ODBC Driver 18 for SQL Server',
-            'extra_params': 'Encrypt=Optional',
-        }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': database_name,
+        'USER': database_user,
+        'PASSWORD': database_password,
+        'HOST': database_host,
+        'PORT': database_port,
     }
 }
 
