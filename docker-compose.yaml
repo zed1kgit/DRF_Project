@@ -12,7 +12,7 @@ services:
     image: postgres
     container_name: postgres_learning_platform_docker
     env_file: .env
-    user: ${POSTGRES_DATABASE_USER}
+    user: ${POSTGRES_USER}
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
